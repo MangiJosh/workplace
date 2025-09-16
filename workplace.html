@@ -341,6 +341,143 @@
             box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
         }
 
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #1a365d, #667eea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem 2rem;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+
+        /* FAQ Responsive Design */
+        @media (max-width: 768px) {
+            .faq-section {
+                padding: 60px 0;
+            }
+
+            .faq-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .faq-question {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 1rem 1.5rem;
+            }
+
+            .faq-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-section {
+                padding: 40px 0;
+            }
+
+            .faq-title {
+                font-size: 1.8rem;
+            }
+
+            .faq-question {
+                padding: 0.8rem 1rem;
+                font-size: 0.95rem;
+            }
+
+            .faq-answer {
+                padding: 0 1rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 0.8rem 1rem;
+            }
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, #1a365d, #2d3748);
@@ -617,7 +754,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>The Workplace</h1>
-                <div class="tagline">Pre-Order Your Copy Today</div>
+                <div class="tagline">Order Your Copy Today</div>
             </div>
         </div>
     </section>
@@ -632,14 +769,22 @@
                 
                 <div class="book-details">
                     <h2 class="book-title">The Workplace</h2>
-                    <p class="book-subtitle">Releasing October 2025</p>
+                    <p class="book-subtitle">Now Available</p>
                     
                     <p class="book-description">
                         Dumisani's debut book confronts the quiet injustices that shape our professional lives and ripple into society at large. With unflinching honesty and deep empathy, he invites readers to reflect, challenge norms, and reimagine what fairness could look like.
                     </p>
                     
                     <div class="preorder-form">
-                        <h3 style="margin-bottom: 1.5rem; color: #1a365d;">Pre-Order Information</h3>
+                        <h3 style="margin-bottom: 1.5rem; color: #1a365d;">Order Information</h3>
+                        
+                        <div style="background: rgba(102, 126, 234, 0.1); padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border-left: 4px solid #667eea;">
+                            <h4 style="color: #1a365d; margin-bottom: 1rem; font-size: 1.2rem;">Banking Details</h4>
+                            <p style="margin-bottom: 0.5rem; color: #2c3e50;"><strong>Bank:</strong> Capitec</p>
+                            <p style="margin-bottom: 0.5rem; color: #2c3e50;"><strong>Account Holder:</strong> Dumisani Sithole</p>
+                            <p style="margin-bottom: 0.5rem; color: #2c3e50;"><strong>Account Number:</strong> 1194211826</p>
+                            <p style="margin-bottom: 0; color: #2c3e50;"><strong>Account Type:</strong> Savings</p>
+                        </div>
                         <form>
                             <div class="form-group">
                                 <label for="name">Full Name</label>
@@ -666,8 +811,57 @@
                                 <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
                             </div>
                             
-                            <button type="submit" class="cta-btn">Confirm Pre-Order</button>
+                            <button type="submit" class="cta-btn">Confirm Order</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long will it take to receive my order?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Orders are typically processed within 1-2 business days and shipped via standard delivery. You can expect to receive your book within 5-7 business days for local delivery.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How can I contact Dumisani?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You can reach Dumisani directly at +27(0) 725 148 065 or email him at contact@theworkplacewithdumisani.co.za. He's also available for speaking engagements and coaching sessions - visit our contact page for more information.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you ship internationally?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We do not currently ship internationally. All orders are currently limited to South Africa only. We're working on expanding our shipping options in the future, so please check back for updates.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is the book available as an eBook or audiobook?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Currently, "The Workplace" is available in physical format only. We're working on digital versions including eBook and audiobook formats. Stay tuned for updates on our website and social media channels for release announcements.</p>
                     </div>
                 </div>
             </div>
@@ -681,7 +875,7 @@
                 <h3>Connect with Dumisani</h3>
                 <p>Ready to transform your workplace? Book speaking engagements, coaching sessions, or join the movement for workplace justice.</p>
                 <p>📧 contact@theworkplacewithdumisani.co.za</p>
-                <p>📱 +27 (0) 123 456 789</p>
+                <p>📱 +27(0) 725 148 065</p>
             </div>
             
             <p style="margin-top: 2rem; opacity: 0.8;">
@@ -761,6 +955,24 @@
                 behavior: 'smooth'
             });
         }
+
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
