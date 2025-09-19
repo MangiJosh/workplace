@@ -1,5 +1,10 @@
 <?php
 // Handle order form submission
+// Debug information
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Check if this is a POST request
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get form data
     $name = htmlspecialchars($_POST['name'] ?? '');
