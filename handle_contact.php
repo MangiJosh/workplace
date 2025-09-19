@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message'] ?? '');
     
     // Email configuration
-    $to = "info@theworkplacewithdumisani.co.za";
+    $to = "mangi@thingstech.co.za";
     $emailSubject = "New Contact Form Submission - " . $subject;
     
     // Create email body

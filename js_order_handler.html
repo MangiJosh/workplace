@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Order Handler</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .form-group { margin: 15px 0; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #007cba; color: white; padding: 12px 24px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005a87; }
+        .success { color: green; font-size: 18px; margin: 20px 0; }
+        .error { color: red; font-size: 18px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Book Order Form (JavaScript Handler)</h1>
+    
+    <div id="message"></div>
+    
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="address">Delivery Address *</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+        </div>
+        <button type="submit">Place Order</button>
+    </form>
+    
+    <p><a href="workplace.html">← Back to Main Page</a></p>
+
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validate required fields
+            if (!data.name || !data.email || !data.address) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Show processing message
+            showMessage('Processing your order...', 'success');
+            
+            // Simulate order processing (in real implementation, this would send to server)
+            setTimeout(() => {
+                // Create order summary
+                const orderSummary = `
+                    Order Received Successfully!
+                    
+                    Customer: ${data.name}
+                    Email: ${data.email}
+                    Phone: ${data.phone || 'Not provided'}
+                    Quantity: ${data.quantity}
+                    
+                    Delivery Address:
+                    ${data.address}
+                    
+                    Thank you for your order! We will contact you within 24 hours.
+                `;
+                
+                showMessage(orderSummary, 'success');
+                
+                // Reset form
+                this.reset();
+                
+                // Optionally redirect after a delay
+                setTimeout(() => {
+                    if (confirm('Would you like to return to the main page?')) {
+                        window.location.href = 'workplace.html';
+                    }
+                }, 3000);
+                
+            }, 2000);
+        });
+        
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = '<div class="' + type + '">' + text.replace(/\n/g, '<br>') + '</div>';
+        }
+    </script>
+</body>
+</html>

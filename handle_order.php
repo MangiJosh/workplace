@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quantity = htmlspecialchars($_POST['quantity'] ?? '1');
     
     // Email configuration
-    $to = "info@theworkplacewithdumisani.co.za";
+    $to = "mangi@thingstech.co.za";
     $subject = "New Book Order - " . $name;
     
     // Create email body
