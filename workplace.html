@@ -785,7 +785,7 @@
                             <p style="margin-bottom: 0.5rem; color: #2c3e50;"><strong>Account Number:</strong> 1194211826</p>
                             <p style="margin-bottom: 0; color: #2c3e50;"><strong>Account Type:</strong> Savings</p>
                         </div>
-                        <form action="simple_order.php" method="POST">
+                        <form id="orderForm">
                             <div class="form-group">
                                 <label for="name">Full Name</label>
                                 <input type="text" id="name" name="name" required>
@@ -907,7 +907,50 @@
             });
         });
 
-        // Form submission is now handled by PHP
+        // Form submission with JavaScript to avoid 405 errors
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validate required fields
+            if (!data.name || !data.email || !data.address) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Show loading message
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            
+            // Send data to PHP handler using fetch
+            fetch('form_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Redirect to confirmation page
+                    window.location.href = 'order-confirmation.html?type=order';
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error processing your order. Please try again or contact us directly.');
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

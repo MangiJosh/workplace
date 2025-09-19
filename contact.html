@@ -558,7 +558,7 @@
                 <div class="contact-form">
                     <h2>Send a Message</h2>
                     
-                    <form id="contactForm" action="simple_contact.php" method="POST">
+                    <form id="contactForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">First Name *</label>
@@ -648,7 +648,45 @@
             });
         });
 
-        // Form submission is now handled by PHP
+        // Form submission with JavaScript to avoid 405 errors
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            if (!data.firstName || !data.lastName || !data.email || !data.subject || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            fetch('contact_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Redirect to confirmation page
+                    window.location.href = 'order-confirmation.html?type=contact';
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again or contact us directly.');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
