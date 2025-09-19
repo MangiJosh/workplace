@@ -457,7 +457,7 @@
             <div class="booking-form-container">
                 <h2 style="text-align: center; margin-bottom: 2rem; color: #1a365d;">Request a Booking</h2>
                 
-                <form id="bookingForm">
+                <form id="bookingForm" action="handle_booking.php" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
@@ -588,26 +588,7 @@
             });
         });
 
-        // Form submission
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.organization || !data.serviceType || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Show success message
-            alert('Thank you for your booking request! Dumisani will contact you within 24-48 hours to discuss your requirements.');
-            
-            // Reset form
-            this.reset();
-        });
+        // Form submission is now handled by PHP
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

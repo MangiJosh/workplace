@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation - The Workplace with Dumisani</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .confirmation-container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            color: #f44336;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .confirmation-message {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .confirmation-container {
+                padding: 30px 20px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div id="successContent" style="display: none;">
+            <div class="success-icon">✓</div>
+            <h1>Thank You!</h1>
+            <div class="confirmation-message">
+                <p id="successMessage">Your submission has been received successfully.</p>
+                <p>We'll get back to you within 24 hours.</p>
+            </div>
+        </div>
+
+        <div id="errorContent" style="display: none;">
+            <div class="error-icon">⚠</div>
+            <h1>Oops!</h1>
+            <div class="confirmation-message">
+                <p>There was an error processing your submission.</p>
+                <p>Please try again or contact us directly.</p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <a href="index.html" class="btn btn-primary">Return to Home</a>
+            <a href="bookings.html" class="btn btn-secondary">Book Another Service</a>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+
+        // Show appropriate content based on type
+        if (type === 'error') {
+            document.getElementById('errorContent').style.display = 'block';
+        } else {
+            document.getElementById('successContent').style.display = 'block';
+            
+            // Update message based on submission type
+            const successMessage = document.getElementById('successMessage');
+            switch(type) {
+                case 'booking':
+                    successMessage.textContent = 'Your booking request has been received successfully.';
+                    break;
+                case 'contact':
+                    successMessage.textContent = 'Your message has been sent successfully.';
+                    break;
+                case 'order':
+                    successMessage.textContent = 'Your book order has been placed successfully.';
+                    break;
+                default:
+                    successMessage.textContent = 'Your submission has been received successfully.';
+            }
+        }
+    </script>
+</body>
+</html>
