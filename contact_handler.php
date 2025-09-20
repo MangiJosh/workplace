@@ -51,7 +51,7 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($subject
             </div>
             <div class="content">
                 <div class="section">
-                    <h2>👤 Contact Information</h2>
+                    <h2>👤 Client Information</h2>
                     <div class="field">
                         <span class="field-label">Name:</span>
                         <span class="field-value">' . htmlspecialchars($firstName . ' ' . $lastName) . '</span>
@@ -82,15 +82,19 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($subject
             </div>
             <div class="footer">
                 <p>Sent from The Workplace with Dumisani website</p>
-                <p>Reply directly to this email to contact the customer</p>
+                <p>Reply directly to this email to contact the client</p>
             </div>
         </div>
     </body>
     </html>';
     
-    $headers = "From: " . $email . "\r\n";
+    $headers = "From: The Workplace Website <noreply@theworkplacewithdumisani.co.za>\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
+    $headers .= "Return-Path: noreply@theworkplacewithdumisani.co.za\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
+    $headers .= "X-Priority: 3\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
     
     $emailSent = @mail($to, $emailSubject, $htmlMessage, $headers);
     
