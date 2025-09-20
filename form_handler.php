@@ -163,9 +163,40 @@ if (!empty($name) && !empty($email) && !empty($address)) {
                 
                 <div class="highlight">
                     <strong>What happens next?</strong><br>
-                    • We will process your order within 1-2 business days<br>
+                    • Please make payment using the banking details below<br>
+                    • Email proof of payment to info@theworkplacewithdumisani.co.za<br>
+                    • We will process your order once payment is confirmed<br>
                     • You will receive a shipping confirmation once your order is dispatched<br>
                     • Delivery typically takes 5-7 business days within South Africa
+                </div>
+                
+                <div class="section">
+                    <h2>Payment Details</h2>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; border-left: 4px solid #28a745;">
+                        <div class="field">
+                            <span class="field-label">Bank:</span>
+                            <span class="field-value">Capitec</span>
+                        </div>
+                        <div class="field">
+                            <span class="field-label">Account Holder:</span>
+                            <span class="field-value">Dumisani Sithole</span>
+                        </div>
+                        <div class="field">
+                            <span class="field-label">Account Number:</span>
+                            <span class="field-value">1194211826</span>
+                        </div>
+                        <div class="field">
+                            <span class="field-label">Account Type:</span>
+                            <span class="field-value">Savings</span>
+                        </div>
+                        <div class="field">
+                            <span class="field-label">Reference:</span>
+                            <span class="field-value">Your Name + Order</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px; color: #dc3545; font-weight: bold;">
+                        <strong>Important:</strong> Shipping will only be done once proof of payment is received.
+                    </p>
                 </div>
                 
                 <p>If you have any questions about your order, please don\'t hesitate to contact us at <strong>info@theworkplacewithdumisani.co.za</strong> or call <strong>+27(0) 725 148 065</strong>.</p>
