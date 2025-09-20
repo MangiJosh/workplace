@@ -16,7 +16,7 @@ $message = isset($formData['message']) ? trim($formData['message']) : '';
 
 if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) && !empty($organization) && !empty($serviceType)) {
     // Send email
-    $to = "mangi@thingstech.co.za";
+    $to = "info@theworkplacewithdumisani.co.za";
     $subject = "New Booking Request - " . $serviceType;
     
     // Create HTML email with CSS styling

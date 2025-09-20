@@ -15,7 +15,7 @@ $quantity = isset($formData['quantity']) ? trim($formData['quantity']) : '1';
 // Check if this is an order form
 if (!empty($name) && !empty($email) && !empty($address)) {
     // Send email
-    $to = "mangi@thingstech.co.za";
+    $to = "info@theworkplacewithdumisani.co.za";
     $subject = "New Book Order - " . $name;
     
     // Create HTML email with CSS styling
