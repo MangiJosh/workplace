@@ -54,11 +54,11 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) 
     <body>
         <div class="container">
             <div class="header">
-                <h1>📅 New Booking Request</h1>
+                <h1>New Booking Request</h1>
             </div>
             <div class="content">
                 <div class="section">
-                    <h2>👤 Client Information</h2>
+                    <h2>Client Information</h2>
                     <div class="field">
                         <span class="field-label">Name:</span>
                         <span class="field-value">' . htmlspecialchars($firstName . ' ' . $lastName) . '</span>
@@ -78,7 +78,7 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) 
                 </div>
                 
                 <div class="section">
-                    <h2>🎯 Service Details</h2>
+                    <h2>Service Details</h2>
                     <div class="field">
                         <span class="field-label">Service Type:</span>
                         <span class="field-value"><span class="service-badge">' . htmlspecialchars($serviceType) . '</span></span>
@@ -86,7 +86,7 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) 
                 </div>
                 
                 <div class="section">
-                    <h2>📋 Event Information</h2>
+                    <h2>Event Information</h2>
                     <div class="event-details">
                         <div class="field">
                             <span class="field-label">Event Date:</span>
@@ -108,14 +108,14 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($phone) 
                 </div>
                 
                 <div class="section">
-                    <h2>💬 Additional Message</h2>
+                    <h2>Additional Message</h2>
                     <div class="message-box">' . htmlspecialchars($message) . '</div>
                 </div>
                 
                 <div class="priority">
-                    <strong>🚨 HIGH PRIORITY - New Booking Request</strong><br>
-                    <strong>📧 This booking request was sent through the website booking form.</strong><br>
-                    <strong>⏰ Please respond within 24 hours to secure this booking.</strong>
+                    <strong>HIGH PRIORITY - New Booking Request</strong><br>
+                    <strong>This booking request was sent through the website booking form.</strong><br>
+                    <strong>Please respond within 24 hours to secure this booking.</strong>
                 </div>
             </div>
             <div class="footer">

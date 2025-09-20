@@ -47,11 +47,11 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($subject
     <body>
         <div class="container">
             <div class="header">
-                <h1>💬 New Contact Form Submission</h1>
+                <h1>New Contact Form Submission</h1>
             </div>
             <div class="content">
                 <div class="section">
-                    <h2>👤 Client Information</h2>
+                    <h2>Client Information</h2>
                     <div class="field">
                         <span class="field-label">Name:</span>
                         <span class="field-value">' . htmlspecialchars($firstName . ' ' . $lastName) . '</span>
@@ -71,13 +71,13 @@ if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($subject
                 </div>
                 
                 <div class="section">
-                    <h2>📝 Message</h2>
+                    <h2>Message</h2>
                     <div class="message-box">' . htmlspecialchars($message) . '</div>
                 </div>
                 
                 <div class="highlight">
-                    <strong>📧 This message was sent through the website contact form.</strong><br>
-                    <strong>⏰ Please respond within 24 hours to maintain good customer service.</strong>
+                    <strong>This message was sent through the website contact form.</strong><br>
+                    <strong>Please respond within 24 hours to maintain good customer service.</strong>
                 </div>
             </div>
             <div class="footer">
